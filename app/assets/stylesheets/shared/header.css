@@ -7,6 +7,7 @@
   padding: 2vh 15vw;
   display: flex;
   flex-direction: column;
+  border-bottom: 1px solid #ddd;
 }
 
 .search-bar-contents {
@@ -17,38 +18,48 @@
 
 .furima-icon {
   width: 10vw;
-  margin-right: 10vw;
+  margin-right: 1vw;
 }
 
 .search-form {
   width: 65vw;
-  height: 5vh;
+  height: 25px;
   display: flex;
   margin-bottom: 5px;
 }
 
 .search-form>.input-box {
+  font-size: 14px;
   width: 100%;
-  height: 5vh;
+  height: 25px;
   padding-left: 10px;
+  display:flex;
 }
 
 .search-button {
   width: 5vh;
   border: 0;
   cursor: pointer;
-  background-color: #3ccace;
+  background-color: #FF7d32;
   padding: 8px;
+  align-items:center;
 }
 
 .search-icon {
-  width: 100%;
+  width: 80%;
+
+}
+
+.player {
+  flex-basis: 630px;
+  max-width: 630px;
+  box-sizing: border-box;
 }
 
 .nav {
-  font-size: 18px;
+  font-size: 14px;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   flex-wrap: wrap;
   width: 100%;
   padding: 1vh 0;
@@ -74,31 +85,29 @@
 .lists-right {
   display: flex;
   list-style: none;
-  align-items: flex-end;
 }
 
 
 .user-nickname {
   text-decoration: none;
-  margin-right: 3vw;
   color: #333333;
   font-weight: bold;
 }
 
 
 .logout {
+  margin-left:3vw;
   text-decoration: none;
   color: #333333;
 }
 
 .login {
   text-decoration: none;
-  line-height: 32px;
-  margin-right: 3vw;
   color: #333333;
 }
 
 .sign-up {
+  margin-left:3vw;
   text-decoration: none;
   color: #333333;
 }
