@@ -4,7 +4,7 @@
 
 .top-page-header {
   width: 100vw;
-  padding: 2vh 15vw;
+  padding: 4vh 15vw 2vh;
   display: flex;
   flex-direction: column;
   border-bottom: 1px solid #ddd;
@@ -85,6 +85,7 @@
 .lists-right {
   display: flex;
   list-style: none;
+  align-items: flex-end;
 }
 
 
