@@ -211,14 +211,14 @@
 }
 
 
-.items-sell-footer>.menu {
+.items-sell-footer>.footer-menu {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   margin: 3vh 0;
 }
 
-.menu>li>a {
+.footer-menu>li>a {
   color: black;
   font-size: 12px;
   margin: 2vw;

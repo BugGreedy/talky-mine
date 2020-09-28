@@ -57,6 +57,9 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 # ここから追加ライブラリ
 gem 'devise'
 gem 'pry-rails'
+gem 'mini_magick'
+gem 'image_processing', '~> 1.2'
+gem 'active_hash'
 
 group :production do   #heroku用本番環境で静的アセットファイルやログの保存先をHeroku用に微調整してくれるGem
   gem 'rails_12factor'

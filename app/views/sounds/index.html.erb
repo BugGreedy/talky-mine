@@ -10,39 +10,40 @@
    <%# ②投稿一覧 %>
    <div class='sound-contents'>
      <h2 class='title'>ピックアップカテゴリー</h2>
-     <%= link_to '新規投稿商品', "#", class: "subtitle" %>
+     <%= link_to '新規投稿商品', "/sound/new", class: "subtitle" %>
      <ul class='sound-lists'>
    
        <%# 商品のインスタンス変数になにか入っている場合、中身のすべてを展開できるようにしましょう %>
+    <% if @sounds.length != 0 %>
+      <% @sounds.each do |sound|%>
        <li class='list'>
-         <%= link_to "#" do %>
-         <div class='sound-img-content'>
-           <%= image_tag "sound-sample.png", class: "sound-img" %>
-   
-           <%# 商品が売れていればsold outを表示しましょう %>
-           <div class='sold-out'>
-             <span>Sold Out!!</span>
-           </div>
-           <%# //商品が売れていればsold outを表示しましょう %>
-   
-         </div>
-         <div class='sound-info'>
-           <h3 class='sound-name'>
-             <%= "商品名" %>
-           </h3>
-           <div class='sound-price'>
-             <span><%= "販売価格" %>円<br>(税込み)</span>
-             <div class='star-btn'>
-               <%= image_tag "star.png", class:"star-icon" %>
-               <span class='star-count'>0</span>
-             </div>
-           </div>
-         </div>
-         <% end %>
-       </li>
+         <%= link_to sound_path(sound.id) do %>
+         <div class='item-img-content'>
+           <%# <%= image_tag sound.user.image, class: "sound-img" %> %>
+          </div>
+          <% end %>
+ 
+          <div class='sound-info'>
+            <h4 class='sound-name'>
+              <%= sound.user.nickname %>
+            </h4>
+            <h5 class='sound-name'>
+              <%= sound.title %>
+            </h5>
+            <div class='sound-price'>
+              <div class='star-btn'>
+                <%= image_tag "star.png", class:"star-icon" %>
+                <span class='star-count'>0</span>
+              </div>
+            </div>
+          </div>
+      </li>
+    <% end %>
+
        <%# //商品のインスタンス変数になにか入っている場合、中身のすべてを展開できるようにしましょう %>
    
        <%# 商品がない場合のダミー %>
+       <% else %>
        <%# 商品がある場合は表示されないようにしましょう %>
        <li class='list'>
          <%= link_to '#' do %>
@@ -59,11 +60,12 @@
              </div>
            </div>
          </div>
-         <% end %>
+        <% end %>
        </li>
        <%# //商品がある場合は表示されないようにしましょう %>
        <%# /商品がない場合のダミー %>
      </ul>
+    <% end %>
    </div>
    <%# /②投稿一覧 %>
 
@@ -77,8 +79,13 @@
 </div>
 <div class='purchase-btn'>
   <span class='purchase-btn-text'>投稿する</span>
-  <a href="#">
-    <%= image_tag 'camera.png' , size: '185x50' ,class: "purchase-btn-icon" %>
+  <% if user_signed_in? %>
+  <a href="/sounds/new/">
+  <% else %>
+  <a href="/users/sign_in/">
+  <% end %>
+      <%= image_tag 'camera.png' , size: '185x50' ,class: "purchase-btn-icon" %>
   </a>
 </div>
+
 <%= render "shared/footer" %>
