@@ -4,7 +4,8 @@ class Sound < ApplicationRecord
 
   belongs_to :user
   has_many :comments
-  has_one_attached :audio
+  # carrierwave導入後のuploderをジェネレート時に追記
+  mount_uploader :file, AudiofileUploader
   
   with_options presence: true do
   validates :title,length: { maximum: 40}
