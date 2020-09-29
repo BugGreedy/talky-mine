@@ -3,9 +3,9 @@ class SoundsController < ApplicationController
   before_action :set_sound, only: [:edit, :show, :update, :destroy]
 
   def index
-    @sounds = Sound.includes(:user).order("created_at DESC")
+    @sounds = Sound.includes(:user).order('created_at DESC')
   end
-  
+
   def new
     @sound = Sound.new
   end
@@ -34,20 +34,18 @@ class SoundsController < ApplicationController
       rendar :edit
     end
   end
-  
-  
+
   private
-  
+
   def move_to_index
     redirect_to root_path unless user_signed_in?
   end
-  
+
   def sound_params
     params.require(:sound).permit(:file, :title, :text, :genre_id).merge(user_id: current_user.id)
   end
-  
+
   def set_sound
     @sound = Sound.find(params[:id])
   end
-
 end

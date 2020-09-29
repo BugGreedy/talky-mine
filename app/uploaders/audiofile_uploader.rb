@@ -46,5 +46,4 @@ class AudiofileUploader < CarrierWave::Uploader::Base
   # end
 
   include CarrierWave::Audio
-
 end
