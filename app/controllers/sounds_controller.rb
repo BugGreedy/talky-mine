@@ -43,7 +43,7 @@ class SoundsController < ApplicationController
   end
   
   def sound_params
-    params.require(:sound).permit(:audio, :title, :text, :genre_id).merge(user_id: current_user.id)
+    params.require(:sound).permit(:file, :title, :text, :genre_id).merge(user_id: current_user.id)
   end
   
   def set_sound
