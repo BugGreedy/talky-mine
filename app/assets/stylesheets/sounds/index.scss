@@ -9,6 +9,7 @@ a {
 
 
 .main-contents {
+
   width: 1200px;
   margin: 0 auto;
   border-left: 1px solid #ddd;
@@ -42,7 +43,7 @@ a {
 .sound-contents {
   box-sizing: border-box;
   width:100%;
-  min-height: 400px;
+  min-height: 80vh;
   background-color: #FFF;
   display: flex;
   flex-direction: column;
@@ -61,7 +62,7 @@ a {
   font-size: 3vh;
   margin: 1vh 0;
   text-decoration: none;
-  color: #3ccace;
+  color: #FF7d32;
   font-weight: bold;
 }
 
@@ -86,6 +87,7 @@ a {
 .sound-img {
   width: 33vh;
   height: 33vh;
+  border-radius: 50%;
 }
 
 .sold-out {
