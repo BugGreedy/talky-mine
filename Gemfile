@@ -60,6 +60,7 @@ gem 'pry-rails'
 gem 'mini_magick'
 gem 'image_processing', '~> 1.2'
 gem 'active_hash'
+gem 'carrierwave'
 
 group :production do   #heroku用本番環境で静的アセットファイルやログの保存先をHeroku用に微調整してくれるGem
   gem 'rails_12factor'
