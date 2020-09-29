@@ -44,4 +44,7 @@ class AudiofileUploader < CarrierWave::Uploader::Base
   # def filename
   #   "something.jpg" if original_filename
   # end
+
+  include CarrierWave::Audio
+
 end

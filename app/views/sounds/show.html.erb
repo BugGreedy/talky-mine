@@ -8,7 +8,8 @@
     </h2>
     <div class='item-img-content'>
       <%= image_tag @sound.user.image ,class:"item-box-img" %>
-      <audio src= @sound.audio controls>
+      <audio src= "<%= @sound.file  %>" controls="">
+       <a src= "<%= @sound.file %>">ダウンロード</a>
        <p>音声を再生するには、audioタグをサポートしたブラウザが必要です。</p>
       </audio>
 
