@@ -6,16 +6,11 @@
     <h2 class="name">
       <%= @sound.title%>
     </h2>
-    <div class='item-img-content'>
-      <%= image_tag @sound.user.image ,class:"item-box-img" %>
-      <audio src= "<%= @sound.file  %>" controls="">
-       <a src= "<%= @sound.file %>">ダウンロード</a>
+    <%= image_tag @sound.user.image ,class:"item-box-img" %>
+      <audio src= "<%= @sound.file.url  %>" controls="" class="sound-audio">
+       <a src= "<%= @sound.file.url %>">ダウンロード</a>
        <p>音声を再生するには、audioタグをサポートしたブラウザが必要です。</p>
       </audio>
-
-
-
-    </div>
     <%# <div class="item-price-box">
       <span class="item-price">
         ¥ 999,999,999

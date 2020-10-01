@@ -63,6 +63,9 @@ gem 'active_hash'
 gem 'carrierwave'
 gem 'audiojs-rails'
 gem 'carrierwave-audio'
+gem 'aws-sdk-s3', require: false # AWS S3に登録時に導入
+gem 'fog' # carrierwaveをS3に設定する際に導入
+
 
 group :production do   #heroku用本番環境で静的アセットファイルやログの保存先をHeroku用に微調整してくれるGem
   gem 'rails_12factor'
