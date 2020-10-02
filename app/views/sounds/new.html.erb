@@ -7,14 +7,12 @@
     <h2 class="items-sell-title">投稿の情報を入力</h2>
     <%= form_with model: @sound, local: true do |f| %>
 
-    <%# インスタンスを渡して、エラー発生時にメッセージが表示されるようにしましょう。%>
-    <%# render 'shared/error_messages', model: f.object %>
-    <%# //インスタンスを渡して、エラー発生時にメッセージが表示されるようにしましょう。%>
+    <%= render 'shared/error_messages', model: f.object %>
 
-    <%# 出品画像 %>
+    <%# 投稿音源 %>
     <div class="img-upload">
       <div class="weight-bold-text">
-        サムネール画像
+        投稿音声ファイル
         <span class="indispensable">必須</span>
       </div>
       <div class="click-upload">
