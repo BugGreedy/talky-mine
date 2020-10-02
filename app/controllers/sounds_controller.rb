@@ -35,6 +35,12 @@ class SoundsController < ApplicationController
     end
   end
 
+  def show
+    @sound = Sound.find(params[:id])
+    @comment = Comment.new
+    @comments = @sound.comments.includes(:user)
+  end
+
   private
 
   def move_to_index
