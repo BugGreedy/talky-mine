@@ -1,0 +1,22 @@
+       <li class='list'>
+         <%= link_to sound_path(sound.id) do %>
+         <div class='item-img-content'>
+           <%= image_tag sound.user.image, class: "sound-img" %>
+          </div>
+          <% end %>
+ 
+          <div class='sound-info'>
+            <h4 class='sound-name'>
+              <%= sound.user.nickname %>
+            </h4>
+            <h5 class='sound-name'>
+              <%= sound.title %>
+            </h5>
+            <div class='sound-price'>
+              <div class='star-btn'>
+                <%= image_tag "star.png", class:"star-icon" %>
+                <span class='star-count'>0</span>
+              </div>
+            </div>
+          </div>
+      </li>

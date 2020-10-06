@@ -3,6 +3,9 @@ Rails.application.routes.draw do
   root to: 'sounds#index'
   resources :sounds do
     resources :comments, only: :create
+    collection do
+      get 'search'
+    end
   end
   resources :users
   post '/sounds/new' => 'sounds#create'

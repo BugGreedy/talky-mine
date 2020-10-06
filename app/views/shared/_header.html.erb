@@ -1,18 +1,16 @@
 <%# CSS・・・assets/stylesheets/shared/header.css %>
 <header class='top-page-header'>
+
   <div class='search-bar-contents'>
     <%= link_to image_tag("furima-logo-color.png", class:"furima-icon"), "/" %>
-    <form class="search-form" action="#">
-      <input class='input-box' placeholder='チャンネル/パーソナリティ名'>
-      <button class="search-button">
-        <%= image_tag "search-v.png", class:"search-icon" %>
-      </button>
-    </form>
-    <div class='player'>
+    <%= form_with url: search_sounds_path, local: true, method: :get, class:"search-form" do |form|  %>
+      <%= form.text_field :keyword, placeholder: 'チャンネル/パーソナリティ名', class:'input-box' %>
+      <%= form.submit "検索", class:"search-button" %>
+    <% end %>
+    <%# <div class='player'> %>
     
     <div class='nav'>
       <ul class='lists-right'>
-        <%# deviseを導入できたら、ログインの有無で表示が変わるように分岐しましょう%>
          <% if user_signed_in? %>
         <li><%= link_to current_user.nickname, "/users/#{current_user.id}", class: "user-nickname" %></li>
         <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %></li>
@@ -20,7 +18,6 @@
         <li><%= link_to 'ログイン', new_user_session_path, class: "login" %></li>
         <li><%= link_to '新規登録', new_user_registration_path, class: "sign-up" %></li>
         <% end %>
-        <%# //deviseを導入できたら、ログインの有無で表示が変わるように分岐しましょう%>
       </ul>
     </div>
   </div>
