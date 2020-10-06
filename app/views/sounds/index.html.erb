@@ -33,7 +33,7 @@
             <div class='sound-price'>
               <div class='star-btn'>
                 <%= image_tag "star.png", class:"star-icon" %>
-                <span class='star-count'>0</span>
+                <span class='star-count'><%= sound.liked_users.count %></span>
               </div>
             </div>
           </div>
@@ -50,10 +50,8 @@
          <%= image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/10/a004.png", class: "sound-img" %>
          <div class='sound-info'>
            <h3 class='sound-name'>
-             商品を出品してね！
+             音声を投稿してね！
            </h3>
-           <div class='sound-price'>
-             <span>99999999円<br>(税込み)</span>
              <div class='star-btn'>
                <%= image_tag "star.png", class:"star-icon" %>
                <span class='star-count'>0</span>
