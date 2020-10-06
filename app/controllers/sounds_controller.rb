@@ -39,6 +39,7 @@ class SoundsController < ApplicationController
     @sound = Sound.find(params[:id])
     @comment = Comment.new
     @comments = @sound.comments.includes(:user)
+    @like = Like.new
   end
 
   def search
