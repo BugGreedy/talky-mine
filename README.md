@@ -11,11 +11,12 @@ README
 https://talky-mine-29213.herokuapp.com/
 
 ## テスト用アカウント
-|適用       |id(Email)         |password   |
-|-----------|---------------  -|-----------|
-|Basic認証   |admin             |2222       |
-|投稿ユーザー  |toukou@gmail.com  |sample6    |
-|試聴ユーザー  |shichou@gmail.com |sample6    |
+
+| 適用         | id(Email)         | password   |
+| ----------- | ----------------- | ---------- |
+| Basic認証    | admin             | 2222       |
+| 投稿ユーザー   | toukou@gmail.com  | sample6    |
+| 試聴ユーザー   | shichou@gmail.com | sample6    |
 
 
 
