@@ -1,6 +1,6 @@
 class SoundsController < ApplicationController
-  before_action :move_to_index, except: [:index, :show]
   before_action :set_sound, only: [:edit, :show, :update, :destroy]
+  before_action :move_to_index, except: [:index, :show, :search]
 
   def index
     @sounds = Sound.includes(:user).order('created_at DESC')
@@ -39,6 +39,11 @@ class SoundsController < ApplicationController
     @sound = Sound.find(params[:id])
     @comment = Comment.new
     @comments = @sound.comments.includes(:user)
+    @like = Like.new
+  end
+
+  def search
+    @sounds = Sound.search(params[:keyword])
   end
 
   private

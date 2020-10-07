@@ -1,9 +1,15 @@
 class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  has_many :sounds
-  has_many :comments
+  has_many :sounds, dependent: :destroy
+  has_many :comments 
   has_one_attached :image
+  has_many :likes, dependent: :destroy
+  has_many :liked_sounds,  through: :likes, source: :sound
+
+  def already_liked?(sound)
+    self.likes.exists?(sound_id: sound.id)
+  end
 
   with_options presence: true do
     VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i.freeze

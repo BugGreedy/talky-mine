@@ -1,0 +1,39 @@
+<%= render "shared/header" %>
+<div class='main'>
+  <div class='main-contents'>  
+   <%# ①メニューバー %>
+   <div class='menu'>
+   ここはメニューバー
+   </div>
+   <%# /①メニューバー %>
+
+   <%# ②投稿一覧 %>
+   <div class='sound-contents'>
+     <%= link_to 'トップへ戻る', "/#", class: "subtitle" %>
+      <ul class='sound-lists'>
+      <% @sounds.each do |sound|%>
+        <%= render partial: "sound", locals: { sound: sound } %>
+      <% end %>
+      </ul>
+   </div>
+
+   <%# ③ランキング %>
+   <div class='ranking'>
+   ここはランキング
+   </div>
+   <%# /③ランキング %>
+
+  </div>
+</div>
+<div class='purchase-btn'>
+  <span class='purchase-btn-text'>投稿する</span>
+  <% if user_signed_in? %>
+  <a href="/sounds/new/">
+  <% else %>
+  <a href="/users/sign_in/">
+  <% end %>
+      <%= image_tag 'camera.png' , size: '185x50' ,class: "purchase-btn-icon" %>
+  </a>
+</div>
+
+<%= render "shared/footer" %>

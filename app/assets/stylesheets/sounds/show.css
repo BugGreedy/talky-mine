@@ -108,6 +108,7 @@
   display: flex;
   justify-content: space-between;
   position: relative;
+  margin: 20px 0;
 }
 
 .favorite-btn {
@@ -187,6 +188,10 @@
 
 .comment-flag-icon {
   margin: 10px 5px 0 0;
+}
+
+.comments {
+  margin-bottom: 20px;
 }
 
 .links {
