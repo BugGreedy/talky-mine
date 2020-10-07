@@ -1,5 +1,8 @@
 # README
 
+
+
+以下はrubyデフォルトで記載の文章
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
