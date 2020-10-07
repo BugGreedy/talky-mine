@@ -11,14 +11,6 @@
        <a src= "<%= @sound.file.url %>">ダウンロード</a>
        <p>音声を再生するには、audioタグをサポートしたブラウザが必要です。</p>
       </audio>
-    <%# <div class="item-price-box">
-      <span class="item-price">
-        ¥ 999,999,999
-      </span>
-      <span class="item-postage">
-        (税込) 送料込み
-      </span>
-    </div> %>
 
     <%# ログインしているユーザーと出品しているユーザーが、同一人物の場合と同一人物ではない場合で、処理を分けましょう %>
     <% if  user_signed_in? && current_user.id == @sound.user_id %>
@@ -26,10 +18,6 @@
     <p class='or-text'>or</p>
     <%= link_to '削除', "#", method: :delete, class:'item-destroy' %>
     <% end %>
-
-    <%# 商品が売れていない場合はこちらを表示しましょう %>
-    <%# <%= link_to '購入画面に進む', "#" ,class:"item-red-btn"%>
-    <%# //商品が売れていない場合はこちらを表示しましょう %>
 
     <div class="item-explain-box">
       <span><%= @sound.text %></span>
@@ -49,14 +37,14 @@
     </table>
     <div>
         <% if current_user.already_liked?(@sound) %>
-         <%= button_to 'いいねを取り消す', sound_like_path(@sound), method: :delete %>
+         <%= button_to 'いいねを取り消す', sound_like_path(@sound), method: :delete, class:"favorite-btn"%>
         <% else %>
-         <%= button_to 'いいね', sound_likes_path(@sound) %>
+         <%= button_to 'いいね', sound_likes_path(@sound),class:"favorite-btn" %>
         <% end %>
      </div>
     
     <div class="option">
-      <div class="favorite-btn">
+      <div>
         <%= image_tag "star.png" ,class:"favorite-star-icon" ,width:"20",height:"20"%>
         <span><%= @sound.likes.count %></span>
       </div>
@@ -97,15 +85,6 @@
         <% end %>
       <% end %>
     </div>
-  <div class="links">
-    <a href="#" class="change-item-btn">
-      ＜ 前の商品
-    </a>
-    <a href="#" class="change-item-btn">
-      後ろの商品 ＞
-    </a>
-  </div>
-  <a href="#" class='another-item'><%= "商品のカテゴリー名" %>をもっと見る</a>
-</div>
+
 
 <%= render "shared/footer" %>
