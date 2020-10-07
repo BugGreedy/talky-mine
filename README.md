@@ -28,6 +28,9 @@ https://talky-mine-29213.herokuapp.com/
 ## 挙動確認
 
 ## データベース設計
+![ページ遷移図](./app/assets/images/TalkyMine_Moving.png)
+
+![ER図](./app/assets/images/TalkyMine_ERMAP.png)
 
 
 
