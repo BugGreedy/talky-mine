@@ -121,3 +121,17 @@ https://talky-mine-29213.herokuapp.com/
 ![ページ遷移図](./app/assets/images/TalkyMine_Moving.png)
 
 ![ER図](./app/assets/images/TalkyMine_ERMAP.png)
+
+## ローカルでの動作確認方法
+
+1, % cd ~/projects
+2, % git clone https://github.com/BugGreedy/talky-mine.git
+3, % cd talky-mine
+4, % bundle install
+5, % rails db:create
+6, % rails db:migrate
+7, % rails s
+8, http://localhost:3000/ へアクセス
+
+## version info 
+* Ruby _6.0.0_ 
