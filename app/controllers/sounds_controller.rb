@@ -1,6 +1,6 @@
 class SoundsController < ApplicationController
   before_action :set_sound, only: [:edit, :show, :update, :destroy]
-  before_action :move_to_index, except: [:index, :show, :search]
+  before_action :authenticate_user!, except: [:index, :search]
 
   def index
     @sounds = Sound.includes(:user).order('created_at DESC')
