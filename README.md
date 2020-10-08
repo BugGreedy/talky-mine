@@ -124,14 +124,13 @@ https://talky-mine-29213.herokuapp.com/
 
 ## ローカルでの動作確認方法
 
-1. % cd ~/projects
-2. % git clone https://github.com/BugGreedy/talky-mine.git
-3. % cd talky-mine
-4. % bundle install
-5. % rails db:create
-6. % rails db:migrate
-7. % rails s
-8. http://localhost:3000/ へアクセス
+1. % git clone https://github.com/BugGreedy/talky-mine.git 
+2. % cd talky-mine
+3. % bundle install
+4. % rails db:create
+5. % rails db:migrate
+6. % rails s
+7. http://localhost:3000/ へアクセス
 
 ## version info 
 * Ruby _6.0.0_ 
