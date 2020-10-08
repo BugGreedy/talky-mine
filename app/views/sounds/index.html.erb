@@ -3,14 +3,19 @@
   <div class='main-contents'>  
    <%# ①メニューバー %>
    <div class='menu'>
-   ここはメニューバー
+     <ul>
+       <li>ユーザーネーム</li>
+       <li>ログアウト</li>
+       <li>フォロー中</li>
+       <li>おすすめチャンネル</li>
+     </ul>
    </div>
    <%# /①メニューバー %>
 
    <%# ②投稿一覧 %>
    <div class='sound-contents'>
-     <h2 class='title'>ピックアップカテゴリー</h2>
-     <%= link_to '新規投稿商品', "/sound/new", class: "subtitle" %>
+     <%# <h2 class='title'>ピックアップカテゴリー</h2> %>
+     <%= link_to '新着放送', "/sound/new", class: "subtitle" %>
      <ul class='sound-lists'>
    
        <%# 商品のインスタンス変数になにか入っている場合、中身のすべてを展開できるようにしましょう %>
@@ -47,7 +52,7 @@
        <%# 商品がある場合は表示されないようにしましょう %>
        <li class='list'>
          <%= link_to '#' do %>
-         <%= image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/10/a004.png", class: "sound-img" %>
+         <%= image_tag "https://4.bp.blogspot.com/-pwFCxy4007s/WMfCNtlUzAI/AAAAAAABClg/B-YK7BXBGAAyW2Lilrkl48zqryJUAUlLgCLcB/s800/onsei_ninshiki_computer.png", class: "sound-img" %>
          <div class='sound-info'>
            <h3 class='sound-name'>
              音声を投稿してね！
@@ -57,7 +62,7 @@
                <span class='star-count'>0</span>
              </div>
            </div>
-         </div>
+         
         <% end %>
        </li>
        <%# //商品がある場合は表示されないようにしましょう %>

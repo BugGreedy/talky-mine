@@ -19,13 +19,17 @@ a {
 }
 
 .menu {
-  width: 170px;
+  width: 190px;
   padding-top:2vh;
   padding-right: 8px;
   padding-left: 12px;
   border-right: 1px solid #ddd;
   background-color: #dce0e2;
   font-size:13px;
+}
+
+.menu ul li{
+  padding-bottom: 10px;
 }
 
 .ranking {
@@ -53,13 +57,13 @@ a {
 }
 
 .sound-contents>.title {
-  font-size: 5vh;
+  font-size: 3vh;
   line-height: 1.4;
   font-weight: bold;
 }
 
 .sound-contents>.subtitle {
-  font-size: 3vh;
+  font-size: 2vh;
   margin: 1vh 0;
   text-decoration: none;
   color: #FF7d32;

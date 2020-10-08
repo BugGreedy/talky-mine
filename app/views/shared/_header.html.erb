@@ -2,7 +2,7 @@
 <header class='top-page-header'>
 
   <div class='search-bar-contents'>
-    <%= link_to image_tag("furima-logo-color.png", class:"furima-icon"), "/" %>
+    <%= link_to image_tag("TM-logo-color.png", class:"furima-icon"), "/" %>
     <%= form_with url: search_sounds_path, local: true, method: :get, class:"search-form" do |form|  %>
       <%= form.text_field :keyword, placeholder: 'チャンネル/パーソナリティ名', class:'input-box' %>
       <%= form.submit "検索", class:"search-button" %>
