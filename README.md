@@ -117,6 +117,11 @@ https://talky-mine-29213.herokuapp.com/
 
 ## 挙動確認
 
+1. オーディオファイルの投稿
+https://gyazo.com/2f3eeb5d74ad5771359beaa88054ef37
+
+
+
 ## データベース設計
 ![ページ遷移図](./app/assets/images/TalkyMine_Moving.png)
 

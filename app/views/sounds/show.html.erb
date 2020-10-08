@@ -1,90 +1,129 @@
 <%= render "shared/header" %>
 
 <%# 商品の概要 %>
-<div class="item-show">
-  <div class="item-box">
-    <h2 class="name">
-      <%= @sound.title%>
-    </h2>
-    <%= image_tag @sound.user.image ,class:"item-box-img" %>
-      <audio src= "<%= @sound.file.url  %>" controls="" class="sound-audio">
-       <a src= "<%= @sound.file.url %>">ダウンロード</a>
-       <p>音声を再生するには、audioタグをサポートしたブラウザが必要です。</p>
-      </audio>
-
-    <%# ログインしているユーザーと出品しているユーザーが、同一人物の場合と同一人物ではない場合で、処理を分けましょう %>
-    <% if  user_signed_in? && current_user.id == @sound.user_id %>
-    <%= link_to '商品の編集', "#", method: :get, class: "item-red-btn" %>
-    <p class='or-text'>or</p>
-    <%= link_to '削除', "#", method: :delete, class:'item-destroy' %>
-    <% end %>
-
-    <div class="item-explain-box">
-      <span><%= @sound.text %></span>
+<div class="item-all" >
+  <div class="item-show">
+  
+    <%# ①メニューバー %>
+    <div class='menu'>
+      <ul>
+        <li>ユーザーネーム</li>
+        <li>ログアウト</li>
+        <li>フォロー中</li>
+        <li>おすすめチャンネル</li>
+      </ul>
     </div>
-    <table class="detail-table">
-      <tbody>
-        <tr>
-          <th class="detail-item">出品者</th>
-          <td class="detail-value"><%= @sound.user.nickname %></td>
-        </tr>
-        <tr>
-          <th class="detail-item">カテゴリー</th>
-          <td class="detail-value"><%= @sound.genre.name %></td>
-        </tr>
+    <%# /①メニューバー %>
+  
+    <%# /②投稿の概要 %>
+    <div class="item-box">
+        <%# <div class="item-box-img">
+          <%= image_tag @sound.user.image%>
+        <%# </div> %> 
 
-      </tbody>
-    </table>
-    <div>
-        <% if current_user.already_liked?(@sound) %>
-         <%= button_to 'いいねを取り消す', sound_like_path(@sound), method: :delete, class:"favorite-btn"%>
-        <% else %>
-         <%= button_to 'いいね', sound_likes_path(@sound),class:"favorite-btn" %>
+        <%# <div class="item item--first">
+          <%= image_tag @sound.user.image%>
+        <%# </div> %> 
+
+  
+          <%= image_tag @sound.user.image, class:"item-box-img"%>
+      
+
+
+
+
+
+  
+      <%# リスナーユーザーとパーソナリティーユーザーで処理分岐 %>
+      <% if  user_signed_in? && current_user.id == @sound.user_id %>
+      <%= link_to '商品の編集', "#", method: :get, class: "item-red-btn" %>
+      <p class='or-text'>or</p>
+      <%= link_to '削除', "#", method: :delete, class:'item-destroy' %>
+      <% end %>
+      <%# /リスナーユーザーとパーソなりティーユーザーで処理分岐 %>
+   
+      <div class="LR-box">
+        <div class="L-box">
+           <span><%= image_tag @sound.user.image, class:"sound-user-img"%></span>
+           <span><%= @sound.user.nickname %></span>
+           <div>
+              <% if current_user.already_liked?(@sound) %>
+               <%= button_to 'いいねを取り消す', sound_like_path(@sound), method: :delete, class:"favorite-btn"%>
+              <% else %>
+               <%= button_to 'いいね', sound_likes_path(@sound),class:"favorite-btn" %>
+              <% end %>
+            </div>
+        </div>
+        <div class="R-box">
+            <h2 class="name">
+              <%= @sound.title%>
+            </h2>
+            <span class="genre"><%= @sound.genre.name%></span>
+            <span><%= @sound.text %></span>
+            <audio src= "<%= @sound.file.url  %>" controls="" class="sound-audio">
+             <a src= "<%= @sound.file.url %>">ダウンロード</a>
+             <p>音声を再生するには、audioタグをサポートしたブラウザが必要です。</p>
+            </audio>
+
+        </div>
+
+
+      </div>
+     
+
+     
+    </div> 
+    <%# /②投稿の概要 %>
+  
+    <%# ③ランキング %>
+    <div class="right-bar">
+      <div class="comment-box">
+        <% if current_user %>
+          <%= form_with model: [@sound,@comment], local: true do |f| %>
+            <%= f.text_area :text, placeholder: "コメントする" %>
+            <p class="comment-warn">
+              相手のことを考え丁寧なコメントを心がけましょう。
+              <br>
+              不快な言葉遣いなどは利用制限や退会処分となることがあります。
+            </p>
+            <%= f.submit "SEND" %>
+          <% end %>
+          <%else %>
+          <strong><p>※※※ コメントの投稿には新規登録/ログインが必要です ※※※</p></strong>
         <% end %>
-     </div>
-    
-    <div class="option">
-      <div>
-        <%= image_tag "star.png" ,class:"favorite-star-icon" ,width:"20",height:"20"%>
-        <span><%= @sound.likes.count %></span>
+      </div>
+      <div class="comments">
+          <h4>＜コメント一覧＞</h4>
+          <% if @comments %>
+            <% @comments.each do |comment| %>
+              <p>
+                <strong><%= link_to comment.user.nickname, "/users/#{comment.user_id}" %>：</strong>
+                <%= comment.text %>
+              </p>
+            <% end %>
+          <% end %>
+      </div>
+       
+      
+      <div class="option">
+        <div>
+          <%= image_tag "heart-icon.png" ,class:"favorite-star-icon" ,width:"20",height:"20"%>
+          <span><%= @sound.likes.count %></span>
+        </div>
+      </div>
+  
+      <div>  
+          <h3>いいねしたユーザー</h3>
+          <% @sound.liked_users.each do |user| %>
+           <li><%= user.nickname %></li>
+          <% end %>
       </div>
     </div>
+    <%# /③ランキング %>
+  
+    
+  
+  </div class="item-show">
 
-    <div>  
-        <h3>いいねしたユーザー</h3>
-        <% @sound.liked_users.each do |user| %>
-         <li><%= user.nickname %></li>
-        <% end %>
-    </div>
-  </div> 
-  <%# /商品の概要 %>
-
-  <div class="comment-box">
-    <% if current_user %>
-      <%= form_with model: [@sound,@comment], local: true do |f| %>
-        <%= f.text_area :text, placeholder: "コメントする" %>
-        <p class="comment-warn">
-          相手のことを考え丁寧なコメントを心がけましょう。
-          <br>
-          不快な言葉遣いなどは利用制限や退会処分となることがあります。
-        </p>
-        <%= f.submit "SEND" %>
-      <% end %>
-      <%else %>
-      <strong><p>※※※ コメントの投稿には新規登録/ログインが必要です ※※※</p></strong>
-    <% end %>
-  </div>
-  <div class="comments">
-      <h4>＜コメント一覧＞</h4>
-      <% if @comments %>
-        <% @comments.each do |comment| %>
-          <p>
-            <strong><%= link_to comment.user.nickname, "/users/#{comment.user_id}" %>：</strong>
-            <%= comment.text %>
-          </p>
-        <% end %>
-      <% end %>
-    </div>
-
-
+</div>
 <%= render "shared/footer" %>
