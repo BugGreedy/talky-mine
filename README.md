@@ -117,8 +117,11 @@ https://talky-mine-29213.herokuapp.com/
 
 ## 挙動確認
 
-1. オーディオファイルの投稿
-https://gyazo.com/2f3eeb5d74ad5771359beaa88054ef37
+1. オーディオファイルの投稿</br>
+https://gyazo.com/62c5bfc6361dd45bdefd5cee88102260
+
+2. 再生ページで再生
+
 
 
 
