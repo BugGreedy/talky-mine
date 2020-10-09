@@ -120,6 +120,7 @@ https://talky-mine-29213.herokuapp.com/
 1. オーディオファイルの投稿</br>
 ![](./app/assets/images/gif/TMkyodo_01_01.gif)
 ![](./app/assets/images/gif/TMkyodo_01_011.gif)
+![](./app/assets/images/gif/TMkyodo_01_0111.gif)
 
 2. 再生ページで再生
 
