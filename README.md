@@ -119,15 +119,16 @@ https://talky-mine-29213.herokuapp.com/
 
 1. オーディオファイルの投稿</br>
 ![](./app/assets/images/gif/TMkyodo_01_0111.gif)
+![](./app/assets/images/gif/TMkyodo_01_02.gif)
 
 2. 再生ページで再生
 ![](./app/assets/images/gif/TMkyodo_02.gif)
 
 3. コメント投稿
-
+![](./app/assets/images/gif/TMkyodo_03.gif)
 
 4. いいねボタン
-
+![](./app/assets/images/gif/TMkyodo_04.gif)
 
 ## データベース設計
 ![ページ遷移図](./app/assets/images/TalkyMine_Moving.png)
