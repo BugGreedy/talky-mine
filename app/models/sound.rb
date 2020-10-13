@@ -19,9 +19,9 @@ class Sound < ApplicationRecord
   end
 
   with_options presence: true do
+    validates :file
     validates :title, length: { maximum: 40 }
     validates :text, length: { maximum: 1000 }
-    # validates :file
-    validates :genre_id, numericality: { other_than: 0, message: 'は選択しないと出品できません' }
+    validates :genre_id, numericality: { other_than: 0, message: 'は選択しないと投稿できません' }
   end
 end
