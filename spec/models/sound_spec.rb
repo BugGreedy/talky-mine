@@ -1,5 +1,5 @@
 require 'rails_helper'
-require "faker"
+require 'faker'
 Faker::Config.locale = :ja
 RSpec.configure do |config|
   config.include FactoryBot::Syntax::Methods
@@ -22,13 +22,13 @@ RSpec.describe Sound, type: :model do
       it '投稿音源がないと登録できない' do
         @sound.file = nil
         @sound.valid?
-        expect(@sound.errors.full_messages).to include()
+        expect(@sound.errors.full_messages).to include
       end
 
       it 'ユーザ-が紐付いてないと登録できない' do
         @sound.user = nil
         @sound.valid?
-        expect(@sound.errors.full_messages).to include("User must exist")
+        expect(@sound.errors.full_messages).to include('User must exist')
       end
 
       it 'タイトルがないと登録できない' do
@@ -46,7 +46,7 @@ RSpec.describe Sound, type: :model do
       it 'ジャンルを選択しないと登録できない' do
         @sound.genre_id = '0'
         @sound.valid?
-        expect(@sound.errors.full_messages).to include("Genre は選択しないと投稿できません")
+        expect(@sound.errors.full_messages).to include('Genre は選択しないと投稿できません')
       end
     end
   end
