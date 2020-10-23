@@ -150,13 +150,12 @@ https://talky-mine-29213.herokuapp.com/
 * rails '~> 6.0.0'
 * 
 
-### gemfile
-# group: test
+## gemfile
+### group: test
 * rubocop 
 * rspec-rails '~> 4.0.0'
 * factory_bot_rails
 * faker
-</br>
 
 ### additional
 * devise
@@ -169,7 +168,6 @@ https://talky-mine-29213.herokuapp.com/
 * carrierwave-audio
 * aws-sdk-s3, require: false # AWS S3導入時に追加
 * fog # carrierwaveをS3に設定する際に追加
-</br>
 
 ### group: production
 * rails_12factor # heroku導入時に追加
