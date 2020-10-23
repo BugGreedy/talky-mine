@@ -148,7 +148,7 @@ https://talky-mine-29213.herokuapp.com/
 ## version info 
 * ruby '2.6.5'
 * rails '~> 6.0.0'
-* 
+* mysql2 '0.5.3'
 
 ## gemfile
 ### group: test
