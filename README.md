@@ -146,28 +146,30 @@ https://talky-mine-29213.herokuapp.com/
 7. http://localhost:3000/ へアクセス
 
 ## version info 
-* Ruby _6.0.0_ 
+* ruby '2.6.5'
+* rails '~> 6.0.0'
+* 
 
-## gemfile
+### gemfile
 # group: test
 * rubocop 
-* rspec-rails, '~> 4.0.0'
+* rspec-rails '~> 4.0.0'
 * factory_bot_rails
 * faker
 </br>
 
-# additional
+### additional
 * devise
 * pry-rails
 * mini_magick
-* image_processing, '~> 1.2'
+* image_processing '~> 1.2'
 * active_hash
 * carrierwave
 * audiojs-rails
 * carrierwave-audio
 * aws-sdk-s3, require: false # AWS S3導入時に追加
-* fog' # carrierwaveをS3に設定する際に追加
+* fog # carrierwaveをS3に設定する際に追加
 </br>
 
-# group: production
-* rails_12factor #heroku導入時に追加
+### group: production
+* rails_12factor # heroku導入時に追加
