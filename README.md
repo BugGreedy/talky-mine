@@ -170,4 +170,6 @@ https://talky-mine-29213.herokuapp.com/
 * fog # carrierwaveをS3に設定する際に追加
 
 ### group: production
-* rails_12factor # heroku導入時に追加
+* ~~rails_12factor # heroku導入時に追加~~
+* unicorn '5.4.1' # EC2導入時に追加
+

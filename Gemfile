@@ -71,6 +71,7 @@ gem 'fog' # carrierwaveをS3に設定する際に導入
 
 
 group :production do   #heroku用本番環境で静的アセットファイルやログの保存先をHeroku用に微調整してくれるGem
-  gem 'rails_12factor'
+  # gem 'rails_12factor'
+  gem 'unicorn', '5.4.1'
 end
 
