@@ -50,5 +50,6 @@ test:
 production:
   <<: *default
   database: talky_mine_production
-  username: talky_mine
-  password: <%= ENV['TALKY_MINE_DATABASE_PASSWORD'] %>
+  username: root
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  socket: /var/lib/mysql/mysql.sock
