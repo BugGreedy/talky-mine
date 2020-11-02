@@ -8,9 +8,9 @@ README
 また、投稿者として他者に語りかける事により自身の発信する内容に対して深い理解を得る事ができます。
 
 ## アプリケーションURL
-http://18.176.188.148/
-または
-https://talky-mine-29213.herokuapp.com/
+EC2導入版 : http://18.176.188.148/</br>
+または</br>
+heroku版 ： https://talky-mine-29213.herokuapp.com/</br>
 
 ## テスト用アカウント
 
