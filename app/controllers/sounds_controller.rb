@@ -10,7 +10,7 @@ class SoundsController < ApplicationController
     @sound = Sound.new
   end
 
-  def create # 保存
+  def create
     @sound = Sound.new(sound_params)
     if @sound.save!
       redirect_to root_path
