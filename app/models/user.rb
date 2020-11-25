@@ -19,4 +19,12 @@ class User < ApplicationRecord
     validates_format_of :password, with: PASSWORD_REGEX, message: 'には英字と数字の両方を含めて設定してください'
     validates :image
   end
+
+  def self.guest
+    find_or_create_by!(email: 'guest@example.com') do |user|
+      user.password = SecureRandom.urlsafe_base64
+      user.nickname = 'ゲストさん'
+      # user.image = fixture_file_upload('public/testimages/test_image02.jpg')
+    end
+  end
 end

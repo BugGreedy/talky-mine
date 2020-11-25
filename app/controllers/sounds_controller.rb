@@ -1,6 +1,7 @@
 class SoundsController < ApplicationController
   before_action :set_sound, only: [:edit, :show, :update, :destroy]
-  before_action :authenticate_user!, except: [:index, :search]
+  # before_action :move_to_index, except: [:index,:search], notice: 'ログインしてください'
+  # before_action :authenticate_user!, except: [:index, :search]
 
   def index
     @sounds = Sound.includes(:user).order('created_at DESC')
@@ -36,14 +37,32 @@ class SoundsController < ApplicationController
   end
 
   def show
-    @sound = Sound.find(params[:id])
-    @comment = Comment.new
-    @comments = @sound.comments.includes(:user)
-    @like = Like.new
+    if user_signed_in?
+      @sound = Sound.find(params[:id])
+      @comment = Comment.new
+      @comments = @sound.comments.includes(:user)
+      @like = Like.new
+    else
+      redirect_to root_path, notice: 'ログインしてからご利用下さい。'
+    end
   end
 
   def search
     @sounds = Sound.search(params[:keyword])
+  end
+
+  # ゲストログイン機能追加時に追記
+  def new_guest
+    require 'faker'
+
+    user = User.find_or_create_by(email: 'guest@example.com') do |user|
+      user.password = Faker::Internet.password(max_length: 10)
+      user.nickname = 'ゲストさん'
+      # user.image = 'public/testimages/test_image02.jpg'
+    end
+
+    sign_in user
+    redirect_to root_path, notice: 'ゲストユーザーとしてログインしました。'
   end
 
   private
