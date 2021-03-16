@@ -53,12 +53,11 @@ class SoundsController < ApplicationController
 
   # ゲストログイン機能追加時に追記
   def new_guest
-    require 'faker'
 
     user = User.find_or_create_by(email: 'guest@example.com') do |user|
-      user.password = Faker::Internet.password(max_length: 10)
+      user.password = SecureRandom.urlsafe_base64(10)
       user.nickname = 'ゲストさん'
-      # user.image = 'public/testimages/test_image02.jpg'
+      user.image = has_one_atacched:'public/testimages/test_image02.jpg'
     end
 
     sign_in user
